@@ -10,10 +10,13 @@ import java.util.UUID;
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(columnDefinition = "BINARY(16)")
     private UUID id;
     private Number score;
     private String comment;
     private Date reviewDate;
+    @OneToOne
+    @JoinColumn(name = "student_id", nullable = false)
     private Register student;
 
     private Review(){}

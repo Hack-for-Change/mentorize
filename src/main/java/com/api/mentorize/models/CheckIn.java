@@ -9,7 +9,10 @@ import java.util.UUID;
 public class CheckIn {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(columnDefinition = "BINARY(16)")
     private UUID id;
+    @ManyToOne
+    @JoinColumn(name = "student_id", nullable = false)
     private Register student;
     private Date startDate;
 
@@ -20,4 +23,5 @@ public class CheckIn {
         this.student = entity.student;
         this.startDate = entity.startDate;
     }
+
 }

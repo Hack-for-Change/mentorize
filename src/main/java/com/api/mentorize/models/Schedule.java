@@ -10,12 +10,15 @@ import java.util.UUID;
 public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(columnDefinition = "BINARY(16)")
     private UUID id;
     private Date availableDays;
     private Date availableHours;
     private Number classNumber;
     private String localType;
     private String detailsLocal;
+    @OneToOne
+    @JoinColumn(name = "teacher_id", nullable = false)
     private Register teacher;
 
     public Schedule(){}

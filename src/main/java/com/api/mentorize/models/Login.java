@@ -9,11 +9,11 @@ import java.util.UUID;
 public class Login {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(columnDefinition = "BINARY(16)")
     private UUID id;
     private String email;
     private String password;
     private String phone;
-
     public Login(){}
 
     public Login(Login entity) {

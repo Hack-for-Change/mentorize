@@ -9,8 +9,11 @@ import java.util.UUID;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(columnDefinition = "BINARY(16)")
     private UUID id;
     private String name;
+    @ManyToOne
+    @JoinColumn(name = "teacher_id", nullable = false)
     private Register teacher;
 
     private Category(){}

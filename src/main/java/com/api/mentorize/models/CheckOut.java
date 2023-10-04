@@ -10,9 +10,14 @@ import java.util.UUID;
 public class CheckOut {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(columnDefinition = "BINARY(16)")
     private UUID id;
+    @ManyToOne
+    @JoinColumn(name = "student_id")
     private Register student;
     private Date endDate;
+    @ManyToOne
+    @JoinColumn(name = "review_id")
     private Review review;
 
     private  CheckOut(){}

@@ -22,13 +22,21 @@ public class LoginController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
     @GetMapping("/login")
-    public ResponseEntity getById(@RequestBody LoginDTO loginDTO){
+    public ResponseEntity get(@RequestBody LoginDTO loginDTO){
         Optional<Login> response;
         if(!loginDTO.email().isEmpty() )
             response = services.findByEmail(loginDTO.email());
             else
                 response = services.findByPhone(loginDTO.phone());
 
+        if (response.isEmpty()) {
+            return ResponseEntity.badRequest().body("User not found on this system");
+        }
+        return ResponseEntity.ok(response);
+    }
+    @GetMapping("/login/{id}")
+    public ResponseEntity getById(@PathVariable(value = "id") UUID id){
+        var response =  services.findById(id);
         if (response.isEmpty()) {
             return ResponseEntity.badRequest().body("User not found on this system");
         }

@@ -3,18 +3,20 @@ package com.api.mentorize.models;
 import jakarta.persistence.*;
 
 import java.util.UUID;
-
 @Entity
 @Table(name = "tb_register")
 public class Register {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(columnDefinition = "BINARY(16)")
     private UUID id;
     private String name;
     private String photo;
     private String document;
     private Boolean teacher;
     private String classTheme;
+    @ManyToOne
+    @JoinColumn(name = "login_id", nullable = false)
     private Login login;
     public Register(){};
     public Register(Register entity) {
@@ -79,9 +81,4 @@ public class Register {
         return login;
     }
 
-    public void setLogin(String pass, String email, String phone) {
-        login = new Login();
-        //login.save(pass, email, phone);
-        this.login = login;
-    }
 }

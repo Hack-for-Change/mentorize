@@ -38,8 +38,8 @@ public class RegisterRepository {
     }
 
     public Register findById(UUID id) {
-        var electronic = repo.findById(id).orElseThrow(() -> new RepositoryException("Failed to get register by id!", null));
-        return new Register(electronic);
+        var register = repo.findById(id).orElseThrow(() -> new RepositoryException("Failed to get register by id!", null));
+        return new Register(register);
     }
 
     public void removeById(UUID id) {
