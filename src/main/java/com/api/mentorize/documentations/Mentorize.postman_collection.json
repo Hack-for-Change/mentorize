@@ -1,0 +1,434 @@
+{
+	"info": {
+		"_postman_id": "6bbe67a4-c9c8-4849-9146-76fbc284cb55",
+		"name": "Mentorize",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14838966"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Autenticar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"th@mentorize.com.br\",\n    \"password\": \"123\",\n    \"phone\": \"3799989858\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/auth",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autenticar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"th@mentorize.com.br\",\n    \"password\": \"123\",\n    \"phone\": \"3799989858\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autenticar ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/login/{login_id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login",
+								"{login_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autenticar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/login/{login_id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login",
+								"{login_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CheckIn",
+			"item": [
+				{
+					"name": "CheckIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/checkin{register_id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"checkin{register_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CheckIn",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/checkin",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"checkin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CheckOut",
+			"item": [
+				{
+					"name": "CheckOut",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"score\": 2,\n    \"comment\": \"Amei essa aula! Otima didatica\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/checkout/{register_id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"checkout",
+								"{register_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CheckOut",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/checkout",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"item": [
+				{
+					"name": "Registros",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Thaís Martins\",\n    \"photo\": \"https://github.com/Thcamposmartins.png\",\n    \"document\": \"111111111-11\",\n    \"teacher\": false,\n    \"email\": \"th@mentorize.com.br\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/register/{registros_id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register",
+								"{registros_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Thaís Martins\",\n    \"photo\": \"https://github.com/Thcamposmartins.png\",\n    \"document\": \"111111111-11\",\n    \"teacher\": false,\n    \"email\": \"th@mentorize.com.br\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/register/{registros_id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register",
+								"{registros_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registros",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/register/{registros_id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register",
+								"{registros_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Schedule",
+			"item": [
+				{
+					"name": "Agenda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"availableDays\": \"2023-10-04\",\n    \"availableHours\": \"14:30:00\",\n    \"classNumber\": 10,             \n    \"localType\": \"Presencial\",   \n    \"detailsLocal\": \"Praça Igreja Matriz\" ,\n    \"email\": \"th@mentorize.com.br\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/schedule",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agenda",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/schedule",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"schedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agenda ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/schedule/{agenda_id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"schedule",
+								"{agenda_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agenda ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"availableDays\": \"2023-10-04\",\n    \"availableHours\": \"14:30:00\",\n    \"classNumber\": 10,             \n    \"localType\": \"Online\",   \n    \"detailsLocal\": \"Praça Igreja Matriz\" ,\n    \"email\": \"th@mentorize.com.br\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/schedule/{agenda_id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"schedule",
+								"{agenda_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agenda",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/schedule/{agenda_id}",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"schedule",
+								"{agenda_id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
