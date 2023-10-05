@@ -2,12 +2,14 @@ package com.api.mentorize.dtos;
 
 import com.api.mentorize.models.Login;
 
+import java.util.Optional;
+
 public record RegisterDTO(
         String name,
         String photo,
         String document,
         Boolean teacher,
-        String classTheme,
+        String email,
         Login login
 ) {
     @Override
@@ -19,19 +21,13 @@ public record RegisterDTO(
         return photo;
     }
     @Override
+    public String email() {return email; }
+    @Override
     public String document() {
         return document;
     }
     @Override
     public Boolean teacher() {
         return teacher;
-    }
-    @Override
-    public String classTheme() {
-        return classTheme;
-    }
-    @Override
-    public Login login() {
-        return login;
     }
 }

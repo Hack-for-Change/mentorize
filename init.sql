@@ -4,29 +4,7 @@ CREATE DATABASE mentorize;
 -- Connect to the mentorize database
 \c mentorize;
 
--- Create the tb_category table
-CREATE TABLE IF NOT EXISTS tb_category (
-    id UUID PRIMARY KEY,
-    name VARCHAR(255),
-    teacher_id UUID not null,
-    foreign key(teacher_id) references tb_register(id) on delete cascade
-);
-
-CREATE TABLE IF NOT EXISTS tb_checkin (
-    id UUID PRIMARY KEY,
-    startDate date not null,
-    student_id UUID not null,
-    foreign key(student_id) references tb_register(id) on delete cascade
-);
-
-CREATE TABLE IF NOT EXISTS tb_checkout (
-    id UUID PRIMARY KEY,
-    endDate date not null,
-    student_id UUID not null,
-    review_id UUID not null,
-    foreign key(review_id) references tb_review(id) on delete cascade,
-    foreign key(student_id) references tb_register(id) on delete cascade
-);
+-- Create tables
 
 CREATE TABLE IF NOT EXISTS tb_login (
     id UUID PRIMARY KEY,
@@ -40,28 +18,53 @@ CREATE TABLE IF NOT EXISTS tb_register (
     name VARCHAR(255),
     photo VARCHAR(255),
     document VARCHAR(255),
-    teacher numeric,
-    classTheme VARCHAR(255),
+    email VARCHAR(255),
+    teacher VARCHAR,
     login_id UUID not null,
     foreign key(login_id) references tb_login(id) on delete cascade
 );
 
+CREATE TABLE IF NOT EXISTS tb_category (
+    id UUID PRIMARY KEY,
+    name VARCHAR(255),
+    teacher_id UUID not null,
+    foreign key(teacher_id) references tb_register(id) on delete cascade
+);
+
 CREATE TABLE IF NOT EXISTS tb_review (
     id UUID PRIMARY KEY,
-    score numeric not null,
+    score int not null,
     comment VARCHAR(255),
-    reviewDate date not null,
+    review_date date not null,
     student_id UUID not null,
+    foreign key(student_id) references tb_register(id) on delete cascade
+);
+
+CREATE TABLE IF NOT EXISTS tb_checkin (
+    id UUID PRIMARY KEY,
+    start_date date not null,
+    student_id UUID not null,
+    foreign key(student_id) references tb_register(id) on delete cascade
+);
+
+CREATE TABLE IF NOT EXISTS tb_checkout (
+    id UUID PRIMARY KEY,
+    end_date date not null,
+    student_id UUID not null,
+    review_id UUID not null,
+    foreign key(review_id) references tb_review(id) on delete cascade,
     foreign key(student_id) references tb_register(id) on delete cascade
 );
 
 CREATE TABLE IF NOT EXISTS tb_schedule (
     id UUID PRIMARY KEY,
-    classNumber numeric not null,
-    localType VARCHAR(255),
-    detailsLocal VARCHAR(255),
-    availableDays date not null,
-    availableHours date not null,
+    class_number int,
+    local_type VARCHAR(255),
+    details_local VARCHAR(255),
+    class_theme VARCHAR(255),
+    email VARCHAR(255),
+    available_days VARCHAR(255) not null,
+    available_hours VARCHAR(255) not null,
     teacher_id UUID not null,
     foreign key(teacher_id) references tb_register(id) on delete cascade
 );

@@ -17,9 +17,13 @@ public class LoginController {
     LoginService services;
 
     @PostMapping("/login")
-    public ResponseEntity<Login> create(@RequestBody LoginDTO loginDTO){
-        var response = services.save(loginDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    public ResponseEntity create(@RequestBody LoginDTO loginDTO){
+        var existLogin = ifExist(loginDTO);
+        if(!existLogin){
+            services.save(loginDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).body("User successfully registered on this system");
+        }
+        return ResponseEntity.badRequest().body("User already exists on this system");
     }
     @GetMapping("/login")
     public ResponseEntity get(@RequestBody LoginDTO loginDTO){
@@ -47,6 +51,20 @@ public class LoginController {
     public ResponseEntity delete(@PathVariable(value = "id") UUID id){
         services.removeById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    public Boolean ifExist(LoginDTO loginDTO){
+        Optional<Login> response;
+
+        if(!loginDTO.email().isEmpty() )
+            response = services.findByEmail(loginDTO.email());
+        else
+            response = services.findByPhone(loginDTO.phone());
+
+        if (response==null || response.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
 }

@@ -2,6 +2,7 @@ package com.api.mentorize.models;
 
 import jakarta.persistence.*;
 
+import java.util.Optional;
 import java.util.UUID;
 @Entity
 @Table(name = "tb_register")
@@ -14,7 +15,7 @@ public class Register {
     private String photo;
     private String document;
     private Boolean teacher;
-    private String classTheme;
+    private String email;
     @ManyToOne
     @JoinColumn(name = "login_id", nullable = false)
     private Login login;
@@ -25,9 +26,13 @@ public class Register {
         this.photo = entity.photo;
         this.document = entity.document;
         this.teacher = entity.teacher;
-        this.classTheme = entity.classTheme;
+        this.email = entity.email;
         this.login = entity.login;
     }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email;}
 
     public UUID getId() {
         return id;
@@ -69,16 +74,11 @@ public class Register {
         this.teacher = teacher;
     }
 
-    public String getClassTheme() {
-        return classTheme;
-    }
-
-    public void setClassTheme(String classTheme) {
-        this.classTheme = classTheme;
-    }
-
     public Login getLogin() {
         return login;
+    }
+    public void setLogin(Optional<Login> l) {
+        login = l.orElse(new Login());
     }
 
 }

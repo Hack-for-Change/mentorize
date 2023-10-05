@@ -1,26 +1,28 @@
 package com.api.mentorize.dtos;
 
-import java.util.Date;
 import com.api.mentorize.models.Register;
 
 public record ScheduleDTO(
-        Date availableDays,
-        Date availableHours,
-        Number classNumber,
+        String availableDays,
+        String availableHours,
+        int classNumber,
         String localType,
         String localDetails,
+        String classTheme,
+
+        String email,
         Register teacher
 ){
     @Override
-    public Date availableDays() {
+    public String availableDays() {
         return availableDays;
     }
     @Override
-    public Date availableHours() {
+    public String availableHours() {
         return availableHours;
     }
     @Override
-    public Number classNumber() {
+    public int classNumber() {
         return classNumber;
     }
     @Override
@@ -32,7 +34,15 @@ public record ScheduleDTO(
         return localDetails;
     }
     @Override
+    public String email() {
+        return email;
+    }
+    @Override
     public Register teacher() {
         return teacher;
+    }
+    @Override
+    public String classTheme() {
+        return classTheme;
     }
 }

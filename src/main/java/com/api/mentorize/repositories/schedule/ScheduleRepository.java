@@ -1,5 +1,6 @@
 package com.api.mentorize.repositories.schedule;
 
+import com.api.mentorize.models.Register;
 import com.api.mentorize.models.Schedule;
 import com.api.mentorize.dtos.ScheduleDTO;
 import jakarta.persistence.EntityNotFoundException;
@@ -28,18 +29,18 @@ public class ScheduleRepository {
         }
     }
 
-    public Schedule save(Schedule electronicsModel) {
+    public Schedule save(Schedule schedule) {
         try {
-            repo.save(electronicsModel);
-            return electronicsModel;
+            repo.save(schedule);
+            return schedule;
         } catch (Exception e) {
             throw new RepositoryException("Failed to save schedule !", e);
         }
     }
 
     public Schedule findById(UUID id) {
-        var electronic = repo.findById(id).orElseThrow(() -> new RepositoryException("Failed to get schedule by id!", null));
-        return new Schedule(electronic);
+        var schedule = repo.findById(id).orElseThrow(() -> new RepositoryException("Failed to get schedule by id!", null));
+        return new Schedule(schedule);
     }
 
     public void removeById(UUID id) {
@@ -56,13 +57,15 @@ public class ScheduleRepository {
         try {
             Schedule schedule = repo.getOne(id);
             schedule.setAvailableDays(scheduleDTO.availableDays());
+            schedule.setClassTheme(scheduleDTO.classTheme());
             schedule.setAvailableHours(scheduleDTO.availableHours());
             schedule.setClassNumber(scheduleDTO.classNumber());
             schedule.setLocalType(scheduleDTO.localType());
             schedule.setDetailsLocal(scheduleDTO.localDetails());
+            schedule.setEmail(scheduleDTO.email());
             schedule = repo.save(schedule);
 
-            return new Schedule(schedule);
+            return schedule;
         } catch (Exception e) {
             throw new RepositoryException("Failed to save schedule !", e);
         }

@@ -45,4 +45,5 @@ public class Login {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
 }

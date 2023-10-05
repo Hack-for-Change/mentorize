@@ -10,7 +10,7 @@ import java.util.UUID;
 @Repository
 public interface ILoginRepository extends JpaRepository<Login, UUID> {
 
-    Optional<Login> findByEmail(String email);
-    Optional<Login> findByPhone(String phone);
+    Login findByEmail(String email);
+    Login findByPhone(String phone);
 
 }

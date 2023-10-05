@@ -41,6 +41,15 @@ public class RegisterRepository {
         var register = repo.findById(id).orElseThrow(() -> new RepositoryException("Failed to get register by id!", null));
         return new Register(register);
     }
+    public Register findByEmail(String email) {
+        try{
+            var register = repo.findByEmail(email);
+            return new Register(register);
+        }
+        catch (RepositoryException e){
+            throw new RepositoryException("Failed to get register by email!", null);
+        }
+    }
 
     public void removeById(UUID id) {
         try {
@@ -55,10 +64,10 @@ public class RegisterRepository {
     public Register update(RegisterDTO RegisterDTO, UUID id) {
         try {
             Register register = repo.getOne(id);
-            register.setClassTheme(RegisterDTO.classTheme());
             register.setName(RegisterDTO.name());
             register.setDocument(RegisterDTO.document());
             register.setPhoto(RegisterDTO.photo());
+            register.setEmail(RegisterDTO.email());
 
             register = repo.save(register);
 
@@ -67,4 +76,5 @@ public class RegisterRepository {
             throw new RepositoryException("Failed to save data !", e);
         }
     }
+
 }

@@ -38,12 +38,20 @@ public class LoginRepository {
     }
 
     public Login findByEmail(String email) {
-        var login = repo.findByEmail(email).orElseThrow(() -> new RepositoryException("Failed to get login by email!", null));
-        return new Login(login);
+        try{
+            var login = repo.findByEmail(email);
+            return login != null ? new Login(login) : null;
+        }catch (RepositoryException e){
+            throw new RepositoryException("Failed to get login by email!", null);
+        }
     }
     public Login findByPhone(String email) {
-        var login = repo.findByPhone(email).orElseThrow(() -> new RepositoryException("Failed to get login by email!", null));
-        return new Login(login);
+        try {
+            var login = repo.findByPhone(email);
+            return login != null ? new Login(login) : null;
+        }catch (RepositoryException e){
+            throw new RepositoryException("Failed to get login by email!", null);
+        }
     }
     public Login findById(UUID id) {
         var login = repo.findById(id).orElseThrow(() -> new RepositoryException("Failed to get login by id!", null));

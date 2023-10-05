@@ -1,6 +1,7 @@
 package com.api.mentorize.controllers;
 
 
+import com.api.mentorize.services.RegisterService;
 import com.api.mentorize.services.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -18,17 +19,25 @@ import java.util.UUID;
 public class ScheduleController {
     @Autowired
     ScheduleService services;
+    @Autowired
+    RegisterService registerServices;
 
     @PostMapping("/schedule")
-    public ResponseEntity<Schedule> create(@RequestBody ScheduleDTO sheduleDTO){
-        var response = services.save(sheduleDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    public ResponseEntity create(@RequestBody ScheduleDTO sheduleDTO){
+        var register = registerServices.findByEmail(sheduleDTO.email());
+        if (!register.isEmpty()) {
+            var response = services.save(sheduleDTO, register);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        }
+        else{
+            return ResponseEntity.badRequest().body("User not found on this system");
+        }
     }
     @GetMapping("/schedule/{id}")
     public ResponseEntity getById(@PathVariable(value = "id") UUID id){
         Optional<Schedule> response = services.findById(id);
         if (response.isEmpty()) {
-            return ResponseEntity.badRequest().body("User not found on this system");
+            return ResponseEntity.badRequest().body("Schedule not found on this system");
         }
         return ResponseEntity.ok(response);
     }
@@ -39,7 +48,6 @@ public class ScheduleController {
         PageRequest pageRequest = PageRequest.of(pagina, tamanho);
         var registers = services.findAll(pageRequest);
         return ResponseEntity.ok(registers);
-
     }
     @PutMapping("/schedule/{id}")
     public ResponseEntity<Schedule> update(@PathVariable(value = "id") UUID id, @RequestBody ScheduleDTO sheduleDTO){

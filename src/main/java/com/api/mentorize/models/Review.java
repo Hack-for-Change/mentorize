@@ -2,7 +2,9 @@ package com.api.mentorize.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Optional;
 import java.util.UUID;
 
 @Entity
@@ -12,14 +14,14 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(columnDefinition = "BINARY(16)")
     private UUID id;
-    private Number score;
+    private int score;
     private String comment;
-    private Date reviewDate;
+    private LocalDateTime reviewDate;
     @OneToOne
     @JoinColumn(name = "student_id", nullable = false)
     private Register student;
 
-    private Review(){}
+    public Review(){}
 
     public Review(Review entity) {
         this.id = entity.id;
@@ -37,11 +39,11 @@ public class Review {
         this.id = id;
     }
 
-    public Number getScore() {
+    public int getScore() {
         return score;
     }
 
-    public void setScore(Number score) {
+    public void setScore(int score) {
         this.score = score;
     }
 
@@ -53,11 +55,11 @@ public class Review {
         this.comment = comment;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return reviewDate;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.reviewDate = date;
     }
 
@@ -65,7 +67,7 @@ public class Review {
         return student;
     }
 
-    public void setStudent(Register student) {
-        this.student = student;
+    public void setStudent(Optional<Register> t) {
+        this.student = t.orElse(new Register());;
     }
 }

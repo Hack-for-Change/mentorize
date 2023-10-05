@@ -1,7 +1,9 @@
 package com.api.mentorize.services;
 
+import com.api.mentorize.models.Register;
 import com.api.mentorize.models.Schedule;
 import com.api.mentorize.dtos.ScheduleDTO;
+import com.api.mentorize.repositories.registers.RegisterRepository;
 import com.api.mentorize.repositories.schedule.ScheduleRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +18,13 @@ import java.util.Set;
 public class ScheduleService {
     @Autowired
     ScheduleRepository scheduleRepository;
+    @Autowired
+    RegisterRepository registerRepository;
 
-    public Schedule save(ScheduleDTO scheduleDTO) {
+    public Schedule save(ScheduleDTO scheduleDTO, Optional<Register> register) {
         var schedule = new Schedule();
         BeanUtils.copyProperties(scheduleDTO, schedule);
+        schedule.setTeacher(register);
         return scheduleRepository.save(schedule);
     }
 

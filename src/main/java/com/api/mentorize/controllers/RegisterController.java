@@ -2,6 +2,7 @@ package com.api.mentorize.controllers;
 
 import com.api.mentorize.dtos.RegisterDTO;
 import com.api.mentorize.models.Register;
+import com.api.mentorize.services.LoginService;
 import com.api.mentorize.services.RegisterService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +18,24 @@ import java.util.UUID;
 @RestController
 public class RegisterController {
     @Autowired
-    RegisterService services;
+    RegisterService registerServices;
+    @Autowired
+    LoginService loginService;
 
     @PostMapping("/register")
-    public ResponseEntity<Register> create(@RequestBody RegisterDTO registerDTO){
-        var response = services.save(registerDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    public ResponseEntity create(@RequestBody RegisterDTO registerDTO){
+        var login = loginService.findByEmail(registerDTO.email());
+        if (!login.isEmpty()) {
+            var response = registerServices.save(registerDTO, login);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
+        }
+        else{
+            return ResponseEntity.badRequest().body("User not found on this system");
+        }
     }
     @GetMapping("/register/{id}")
     public ResponseEntity getById(@PathVariable(value = "id") UUID id){
-        Optional<Register> response = services.findById(id);
+        Optional<Register> response = registerServices.findById(id);
         if (response.isEmpty()) {
             return ResponseEntity.badRequest().body("User not found on this system");
         }
@@ -37,18 +46,18 @@ public class RegisterController {
         var pagina = 0;
         var tamanho = 10;
         PageRequest pageRequest = PageRequest.of(pagina, tamanho);
-        var registers = services.findAll(pageRequest);
+        var registers = registerServices.findAll(pageRequest);
         return ResponseEntity.ok(registers);
 
     }
     @PutMapping("/register/{id}")
     public ResponseEntity<Register> update(@PathVariable(value = "id") UUID id, @RequestBody RegisterDTO registerDTO){
-        return ResponseEntity.status(HttpStatus.OK).body(services.update(registerDTO, id));
+        return ResponseEntity.status(HttpStatus.OK).body(registerServices.update(registerDTO, id));
     }
 
     @DeleteMapping("/register/{id}")
     public ResponseEntity delete(@PathVariable(value = "id") UUID id){
-        services.removeById(id);
+        registerServices.removeById(id);
         return ResponseEntity.noContent().build();
     }
 
