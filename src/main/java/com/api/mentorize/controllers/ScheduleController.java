@@ -1,7 +1,7 @@
 package com.api.mentorize.controllers;
 
 
-import com.api.mentorize.services.configs.RegisterService;
+import com.api.mentorize.configs.RegisterService;
 import com.api.mentorize.services.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
