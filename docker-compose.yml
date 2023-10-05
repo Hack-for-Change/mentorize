@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: mentorize
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    networks:
+      - pg_network
+
+  mentorize-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres-db
+    networks:
+      - pg_network
+
+networks:
+  pg_network:
+    driver: bridge
