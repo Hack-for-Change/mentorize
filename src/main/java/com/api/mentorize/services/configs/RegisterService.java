@@ -1,4 +1,4 @@
-package com.api.mentorize.services;
+package com.api.mentorize.services.configs;
 
 import com.api.mentorize.models.Login;
 import com.api.mentorize.repositories.registers.RegisterRepository;

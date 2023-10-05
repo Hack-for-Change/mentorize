@@ -3,7 +3,7 @@ package com.api.mentorize.controllers;
 import com.api.mentorize.dtos.RegisterDTO;
 import com.api.mentorize.models.Register;
 import com.api.mentorize.services.LoginService;
-import com.api.mentorize.services.RegisterService;
+import com.api.mentorize.services.configs.RegisterService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
