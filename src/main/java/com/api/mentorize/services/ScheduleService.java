@@ -1,5 +1,6 @@
 package com.api.mentorize.services;
 
+import com.api.mentorize.models.Category;
 import com.api.mentorize.models.Register;
 import com.api.mentorize.models.Schedule;
 import com.api.mentorize.dtos.ScheduleDTO;
@@ -18,14 +19,17 @@ import java.util.Set;
 public class ScheduleService {
     @Autowired
     ScheduleRepository scheduleRepository;
-    @Autowired
-    RegisterRepository registerRepository;
 
-    public Schedule save(ScheduleDTO scheduleDTO, Optional<Register> register) {
+    public Schedule save(ScheduleDTO scheduleDTO, Optional<Register> register, String categoryName) {
         var schedule = new Schedule();
         BeanUtils.copyProperties(scheduleDTO, schedule);
         schedule.setTeacher(register);
-        return scheduleRepository.save(schedule);
+        var scheduleSaved =  scheduleRepository.save(schedule);
+        var category = new Category();
+        category.setSchedule(scheduleSaved);
+        category.setName(categoryName);
+    //Todo save category
+        return scheduleSaved;
     }
 
     public Schedule update(ScheduleDTO scheduleDTO, UUID id) {

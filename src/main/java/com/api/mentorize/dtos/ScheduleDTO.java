@@ -7,7 +7,7 @@ public record ScheduleDTO(
         String availableHours,
         int classNumber,
         String localType,
-        String localDetails,
+        String detailsLocal,
         String classTheme,
 
         String email,
@@ -30,8 +30,8 @@ public record ScheduleDTO(
         return localType;
     }
     @Override
-    public String localDetails() {
-        return localDetails;
+    public String detailsLocal() {
+        return detailsLocal;
     }
     @Override
     public String email() {

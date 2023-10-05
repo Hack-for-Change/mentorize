@@ -13,15 +13,15 @@ public class Category {
     private UUID id;
     private String name;
     @ManyToOne
-    @JoinColumn(name = "teacher_id", nullable = false)
-    private Register teacher;
+    @JoinColumn(name = "tb_schedule", nullable = false)
+    private Schedule schedule;
 
-    private Category(){}
+    public Category(){}
 
     public Category(Category entity) {
         this.id = entity.id;
         this.name = entity.name;
-        this.teacher = entity.teacher;
+        this.schedule = entity.schedule;
     }
 
     public UUID getId() {
@@ -40,11 +40,11 @@ public class Category {
         this.name = name;
     }
 
-    public Register getTeacher() {
-        return teacher;
+    public Schedule getSchedule() {
+        return schedule;
     }
 
-    public void setTeacher(Register teacher) {
-        this.teacher = teacher;
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 }

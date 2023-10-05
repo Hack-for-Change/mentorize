@@ -25,8 +25,9 @@ public class ScheduleController {
     @PostMapping("/schedule")
     public ResponseEntity create(@RequestBody ScheduleDTO sheduleDTO){
         var register = registerServices.findByEmail(sheduleDTO.email());
+        var category_name = "educacao";
         if (!register.isEmpty()) {
-            var response = services.save(sheduleDTO, register);
+            var response = services.save(sheduleDTO, register, category_name);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
         }
         else{

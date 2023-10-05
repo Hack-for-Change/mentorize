@@ -1,5 +1,6 @@
 package com.api.mentorize.repositories.schedule;
 
+import com.api.mentorize.models.Category;
 import com.api.mentorize.models.Register;
 import com.api.mentorize.models.Schedule;
 import com.api.mentorize.dtos.ScheduleDTO;
@@ -19,6 +20,8 @@ import java.util.UUID;
 public class ScheduleRepository {
     @Autowired
     private IScheduleRepository repo;
+    @Autowired
+    private ICategoryRepository repoCat;
 
     public Page<Schedule> findAll(PageRequest pagina) {
         try {
@@ -35,6 +38,14 @@ public class ScheduleRepository {
             return schedule;
         } catch (Exception e) {
             throw new RepositoryException("Failed to save schedule !", e);
+        }
+    }
+    public Category saveCat(Category category) {
+        try {
+            repoCat.save(category);
+            return category;
+        } catch (Exception e) {
+            throw new RepositoryException("Failed to save category !", e);
         }
     }
 
@@ -61,7 +72,7 @@ public class ScheduleRepository {
             schedule.setAvailableHours(scheduleDTO.availableHours());
             schedule.setClassNumber(scheduleDTO.classNumber());
             schedule.setLocalType(scheduleDTO.localType());
-            schedule.setDetailsLocal(scheduleDTO.localDetails());
+            schedule.setDetailsLocal(scheduleDTO.detailsLocal());
             schedule.setEmail(scheduleDTO.email());
             schedule = repo.save(schedule);
 
