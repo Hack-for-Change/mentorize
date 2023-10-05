@@ -1,9 +1,3 @@
----- Create the mentorize database
-CREATE DATABASE mentorize;
-
--- Connect to the mentorize database
-\c mentorize;
-
 -- Create tables
 
 CREATE TABLE IF NOT EXISTS tb_login (

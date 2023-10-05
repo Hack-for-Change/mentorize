@@ -9,25 +9,26 @@ import com.api.mentorize.models.Login;
 import com.api.mentorize.dtos.LoginDTO;
 
 
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
-import java.security.Key;
-import java.util.Base64;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
 @Service
 public class LoginService {
-    private static final String AES = "AES";
-    private static final String SECRET_KEY = "mentorize";
     @Autowired
     LoginRepository loginRepository;
+    @Autowired
+    PasswordEncryptDecrypt passwordEncryptDecrypt;
 
-    public Login save(LoginDTO loginDTO) {
+    public Login save(LoginDTO loginDTO)  {
         var login = new Login();
         BeanUtils.copyProperties(loginDTO, login);
-        var pass = encrypt(loginDTO.password());
+        String pass = null;
+        try {
+            pass = passwordEncryptDecrypt.encrypt(loginDTO.password(),"mentorizese");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         login.setPassword(pass);
         return loginRepository.save(login);
     }
@@ -55,31 +56,6 @@ public class LoginService {
 
     public void removeById(UUID id) {
         loginRepository.removeById(id);
-    }
-    public static String encrypt(String password) {
-        try {
-            Key key = new SecretKeySpec(SECRET_KEY.getBytes(), AES);
-            Cipher cipher = Cipher.getInstance(AES);
-            cipher.init(Cipher.ENCRYPT_MODE, key);
-            byte[] encrypted = cipher.doFinal(password.getBytes());
-            return Base64.getEncoder().encodeToString(encrypted);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public static String decrypt(String encryptedPassword) {
-        try {
-            Key key = new SecretKeySpec(SECRET_KEY.getBytes(), AES);
-            Cipher cipher = Cipher.getInstance(AES);
-            cipher.init(Cipher.DECRYPT_MODE, key);
-            byte[] decrypted = cipher.doFinal(Base64.getDecoder().decode(encryptedPassword));
-            return new String(decrypted);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
 }
