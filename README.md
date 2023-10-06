@@ -11,7 +11,7 @@
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 * Você instalou a versão mais recente do `Docker`
-* Você leu <a href="https://documenter.getpostman.com/view/14838966/2s9YJdXNkt"> a documentação do backend</a> e o nosso <a href="">pdf de apresentação</a>.
+* Você leu <a href="https://documenter.getpostman.com/view/14838966/2s9YJdXNkt"> a documentação do backend</a> e o nosso <a href="https://drive.google.com/file/d/1LBp-oyqopbf2yFarSK_BXxgZj4p6smIj/view?usp=sharing">pdf de apresentação</a>.
 ---
 
 ## Documentação Backend
