@@ -98,7 +98,7 @@ Conheça o nosso time:
         <sub>
           <b>Paulo Alexandre</b><br>
           <b>Business/Pitch</b><br><br>
-          <a href="https://www.linkedin.com/in/tomaz-pontes/?locale=pt_BR">Linkedin</a>
+          <a href="https://www.linkedin.com/in/pauloafa/">Linkedin</a>
         </sub>
       </a>
     </td>
