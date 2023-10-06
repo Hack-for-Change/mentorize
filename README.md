@@ -114,3 +114,10 @@ Conheça o nosso time:
     </td>
   </tr>
 </table>
+
+## Link úteis
+
+- <a href="https://drive.google.com/file/d/1LBp-oyqopbf2yFarSK_BXxgZj4p6smIj/view?usp=sharing">PDF de Apresentação</a>
+- <a href="https://docs.google.com/document/d/1sSOl3q20M3QqaRepfHQ9niqgtXqojaU5-n7V97X69rc/edit?usp=sharing">Estruturação de Negócio</a>
+- <a href="https://drive.google.com/drive/folders/1hiURzM4bbsFS6odM1WBI6ncIhHLOUJiV">Documentação de Identidade Visual</a>
+- <a href="https://documenter.getpostman.com/view/14838966/2s9YJdXNkt">Documentação do Backend</a>
