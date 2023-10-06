@@ -43,6 +43,12 @@ docker-compose up -d
 >> Conforme documentação a aplicação estará disponivel em http://localhost:8080/
 Para o teste completo, faça o import de nossa coleção disponivel em:
 https://github.com/Hack-for-Change/mentorize/tree/master/src/main/java/com/api/mentorize/documentations/Mentorize.postman_collection.json
+
+>> Frontend:
+localhost:3000
+
+>> Backend:
+localhost:8080
 ```
 
 Opcional: para rodar o pgAdmin:
