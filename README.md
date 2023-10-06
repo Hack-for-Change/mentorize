@@ -68,7 +68,7 @@ Conheça o nosso time:
         <sub>
           <b>Tomaz Pontes</b><br>
           <b>Front-end</b><br><br>
-          <a href="https://www.linkedin.com/in/tomaz-pontes/?locale=pt_BR">Linkedin</a>
+          <a href="https://www.linkedin.com/in/tomaz-pontes/?locale=pt_BR" target="_blank">Linkedin</a>
         </sub>
       </a>
     </td>
@@ -78,7 +78,7 @@ Conheça o nosso time:
         <sub>
           <b>Thaís Martins</b><br>
           <b>Back-end</b><br><br>
-          <a href="https://www.linkedin.com/in/thcamposmartins/">Linkedin</a>
+          <a href="https://www.linkedin.com/in/thcamposmartins/" target="_blank">Linkedin</a>
         </sub>
       </a>
     </td>
@@ -88,7 +88,7 @@ Conheça o nosso time:
         <sub>
           <b>Heloisa Botelho</b><br>
           <b>UX/UI</b><br><br>
-          <a href="https://www.linkedin.com/in/heloisabotelhoc/">Linkedin</a>
+          <a href="https://www.linkedin.com/in/heloisabotelhoc/" target="_blank">Linkedin</a>
         </sub>
       </a>
     </td>
@@ -98,7 +98,7 @@ Conheça o nosso time:
         <sub>
           <b>Paulo Alexandre</b><br>
           <b>Business/Pitch</b><br><br>
-          <a href="https://www.linkedin.com/in/pauloafa/">Linkedin</a>
+          <a href="https://www.linkedin.com/in/pauloafa/" target="_blank">Linkedin</a>
         </sub>
       </a>
     </td>
@@ -108,7 +108,7 @@ Conheça o nosso time:
         <sub>
           <b>Matheus Borges</b><br>
           <b>Pesquisa</b><br><br>
-          <a href="https://www.linkedin.com/in/matheus-borges-2208/">Linkedin</a>
+          <a href="https://www.linkedin.com/in/matheus-borges-2208/" target="_blank">Linkedin</a>
         </sub>
       </a>
     </td>
