@@ -64,7 +64,7 @@ Conheça o nosso time:
   <tr>
     <td align="center">
       <a href="#">
-        <img src="https://media.licdn.com/dms/image/D4D35AQFDqHYmZeWgFw/profile-framedphoto-shrink_200_200/0/1695017830532?e=1697155200&v=beta&t=mxy2Fxt3X6omSG9tmbcOA-AQCcjGuQjy039zIab0v5c" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://media.licdn.com/dms/image/D4D35AQFDqHYmZeWgFw/profile-framedphoto-shrink_200_200/0/1695017830532?e=1698274800&v=beta&t=oCa3Dqpf86XKLuEFnk2CtnPpsMND8MWveNZLbJW4Zzw" width="100px;" alt="Foto do Tomaz"/><br>
         <sub>
           <b>Tomaz Pontes</b><br>
           <b>Front-end</b><br><br>
@@ -74,7 +74,7 @@ Conheça o nosso time:
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://media.licdn.com/dms/image/D4E03AQEfk3HPDXY_Cw/profile-displayphoto-shrink_200_200/0/1691527141182?e=1701907200&v=beta&t=8xcFNIBevnWsG5fCmkQuIQIdYSIbjvHXJXbLhaXYaX8" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
+        <img src="https://media.licdn.com/dms/image/D4E03AQEfk3HPDXY_Cw/profile-displayphoto-shrink_200_200/0/1691527141182?e=1701907200&v=beta&t=8xcFNIBevnWsG5fCmkQuIQIdYSIbjvHXJXbLhaXYaX8" width="100px;" alt="Foto da Thaís"/><br>
         <sub>
           <b>Thaís Martins</b><br>
           <b>Back-end</b><br><br>
@@ -84,7 +84,7 @@ Conheça o nosso time:
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://media.licdn.com/dms/image/D4D35AQFRoORFb_p_tg/profile-framedphoto-shrink_200_200/0/1687332432224?e=1697155200&v=beta&t=P_Ai70xDf7A_PP9q5PUsjazLS-yRjef9YucyDTxRQ-o" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://media.licdn.com/dms/image/D4D35AQFRoORFb_p_tg/profile-framedphoto-shrink_200_200/0/1687332432224?e=1697155200&v=beta&t=P_Ai70xDf7A_PP9q5PUsjazLS-yRjef9YucyDTxRQ-o" width="100px;" alt="Foto da Heloisa"/><br>
         <sub>
           <b>Heloisa Botelho</b><br>
           <b>UX/UI</b><br><br>
@@ -94,7 +94,7 @@ Conheça o nosso time:
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://media.licdn.com/dms/image/C4E03AQHTOQSqTQViLg/profile-displayphoto-shrink_200_200/0/1652916858155?e=1701907200&v=beta&t=9nZ1M0C0EVTFdc1QgHmW4QLl6wZL1AfI8F9F-1lmrM8" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://media.licdn.com/dms/image/C4E03AQHTOQSqTQViLg/profile-displayphoto-shrink_200_200/0/1652916858155?e=1701907200&v=beta&t=9nZ1M0C0EVTFdc1QgHmW4QLl6wZL1AfI8F9F-1lmrM8" width="100px;" alt="Foto do Paulo"/><br>
         <sub>
           <b>Paulo Alexandre</b><br>
           <b>Business/Pitch</b><br><br>
@@ -104,7 +104,7 @@ Conheça o nosso time:
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://media.licdn.com/dms/image/D4D03AQHGwmFZSr1sfg/profile-displayphoto-shrink_200_200/0/1680578321414?e=1701907200&v=beta&t=sQQ4MLjy9ytuuw5HjvB7uETYrG8d9DP078anHV09OrE" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+        <img src="https://media.licdn.com/dms/image/D4D03AQHGwmFZSr1sfg/profile-displayphoto-shrink_200_200/0/1680578321414?e=1701907200&v=beta&t=sQQ4MLjy9ytuuw5HjvB7uETYrG8d9DP078anHV09OrE" width="100px;" alt="Foto do Matheus"/><br>
         <sub>
           <b>Matheus Borges</b><br>
           <b>Pesquisa</b><br><br>
